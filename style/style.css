@@ -1,0 +1,259 @@
+body {
+    margin: 0 auto;
+    background-color: #ec7966;
+    color: #4a4a4a;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-JeF{
+    width: 10%;
+    position: fixed;
+    margin: 20px 100px;
+    z-index: 10;
+    top:0;
+}
+
+header{
+    width:100%;
+    height: 50px;
+    position: fixed;
+    background-color: #6f6f6f; 
+    z-index: 5;
+    top:0;
+}
+
+nav{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer{
+    width:100%;
+    height: 50px;
+    position: fixed;
+    background-color: #6f6f6f; 
+	z-index: 5;
+	top : 100%;
+	transform: translateY(-100%);
+}
+
+/* Conteneur du jeu (avec bouton play et structure du jeu) */
+
+#container-game{
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    margin: 0 auto;
+    border: 2px solid #4a4a4a;
+	background-image: url(../images/background-game.jpg);
+    margin-top: 50vh; 
+  	transform: translateY(-50%); 
+}
+
+#button-play{
+	width: 150px;
+	height: 150px;
+	position:absolute;
+	background-color: #c0452f;
+	top: 225px;
+	left: 425px;
+	border-radius: 75px;
+	cursor:	pointer;
+	z-index: 20;
+}
+
+#button-play img{
+	position:absolute;
+	top: 29px;
+	left: 35px;
+	display: block;
+}
+
+#backgrounds{
+	width:1000px;
+	height:600px;
+	position:absolute;
+	background-image: url(../images/background-photoshop.png);
+	opacity: 0;
+}
+
+#structure-game{
+    width: 1000px;
+    height: 600px;
+    position: absolute;
+    margin: auto;
+	background-image: url(../images/structure.png);
+	z-index:10;
+}
+
+#lumieres{
+	width: 1000px;
+    height: 600px;
+	position:absolute;
+}
+
+/* Clé usb */
+
+#container-cle-usb{
+	width: 36px;
+	height: 36px;
+	position:absolute;
+	overflow: hidden;
+	top: 524px;
+	left: 0;
+	z-index: 0;
+	display:none;
+}
+
+/* Compteur de points */
+
+#points{
+	width: 30px;
+	height: 30px;
+	position: relative;
+	background-color: #c0452f;
+	border-radius: 15px;
+	z-index:50;
+	color: white;
+	float:right;
+	margin: 2px 2px;
+}
+
+#points p {
+	line-height: 0;
+	text-align:center;
+}
+
+/* Éléments ennemis */
+
+#container-pot-ps{
+	width: 24px;
+	height: 28px;
+	position:absolute;
+	overflow: hidden;
+	top: 112px;
+	left: 488px;
+	z-index: 0;
+	display:none;
+}
+
+#container-peinture-ps{
+	width: 73px;
+	height: 69px;
+	position:absolute;
+	overflow: hidden;
+	top: 116px;
+	left: 478px;
+	z-index: 1;
+	display:none;
+	margin-left: 0;
+}
+
+#container-canon-htmlcss{
+	width: 45px;
+	height: 88px;
+	position:absolute;
+	overflow: hidden;
+	top: 10px;
+	left: 220px;
+	z-index: 0;
+	display:none;
+}
+
+#container-tir-htmlcss{
+	width: 22px;
+	height: 47px;
+	position:absolute;
+	overflow: hidden;
+	top: 70px;
+	left: 232px;
+	z-index: 1;
+	display:none;
+}
+
+#container-canon2-htmlcss{
+	width: 45px;
+	height: 88px;
+	position:absolute;
+	overflow: hidden;
+	top: 10px;
+	left: 640px;
+	z-index: 0;
+	display:none;
+}
+
+#container-tir2-htmlcss{
+	width: 22px;
+	height: 47px;
+	position:absolute;
+	overflow: hidden;
+	top: 70px;
+	left: 654px;
+	z-index: 1;
+	display:none;
+}
+
+#container-canon-js{
+	width: 40px;
+	height: 100px;
+	position:absolute;
+	overflow: hidden;
+	top: 20px;
+	left: 100px;
+	z-index: 0;
+	display:none;
+}
+
+#container-tir-js{
+	width: 90px;
+	height: 70px;
+	position:absolute;
+	overflow: hidden;
+	top: 70px;
+	left: 74px;
+	z-index: 1;
+	display:none;
+}
+
+#container-canon-jQuery{
+	width: 54px;
+	height: 51px;
+	position:absolute;
+	top: 10px;
+	left: 200px;
+	z-index: 0;
+	display:none;
+}
+
+#container-tir-jQuery{
+	width: 20px;
+	height: 122px;
+	position:absolute;
+	top: 10px;
+	left: 164px;
+	z-index: 1;
+	display:none;
+}
+
+#container-balises-angular{
+	width: 139px;
+	height: 139px;
+	position:absolute;
+	overflow: hidden;
+	top: 440px;
+	z-index: 0;
+	display:none;
+}
+
+#container-balises-angular img{
+	position : absolute;
+}
+
+#container-explosion-angular{
+	width: 139px;
+	height: 139px;
+	position:absolute;
+	overflow: hidden;
+	top: 440px;
+	z-index: 1;
+	display:none;
+}
