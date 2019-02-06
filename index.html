@@ -8,19 +8,33 @@
     <link rel="stylesheet" href="style/style.css" type="text/css"/>
     <script type="text/javascript" src="javascript/js-game.js"></script>
     <script type="text/javascript" src="javascript/jquery.min.js"></script>
+    
 </head>
 <body>
     <img src="images/logo-JeF.png" name="logo-JeF" class="logo-JeF"/>
-    <header>
-        <nav>
-            <ul>
-                <li>Accueil</li>
-                <li>CV</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <ul>
+            <a href="index.html"><li>Accueil</li></a>
+            <a href="cv.html"><li>CV</li></a>
+            <a href="contact.html"><li>Contact</li></a>
+        </ul>
+    </nav>
     <div id="container-game">
+    	<div id="instructions">
+        	<p>Bienvenue ! Le but de ce jeu est de récupérer les 8 icônes de compétences qui apparaîtront au fur et à mesure<br> autour du personnage tout en évitant les tirs de canons et autres éléments perturbateurs.</p>
+            <p>Pour ce faire, utilisez les touches directionnelles gauche et droite pour vous déplacer. BONNE CHANCE !</p>
+            <h2>CLIQUEZ SUR PLAY POUR JOUER</h2>
+        </div>
+        <div id="rejouer">
+        	<h2><br>VOUS AVEZ PERDU !</h2>
+            <p>Utilisez les touches directionnelles gauche et droite pour vous déplacer. BONNE CHANCE !</p>
+            <h2>CLIQUEZ SUR PLAY POUR REJOUER</h2>
+        </div>
+        <div id="win">
+        	<h1><br>BRAVO !!! VOUS AVEZ GAGNÉ !!!</h1>
+            <h2>CLIQUEZ SUR MON CV POUR VOIR MES COMPÉTENCES</h2>
+            <a href="cv.html"><img src="./images/icone-cv.jpg"/></a>
+        </div>
     	<button id="button-play"><img src="./images/img-play.png"/></button>
     		<div id="backgrounds">
             </div>
@@ -32,9 +46,6 @@
             <div id="lumieres">
                 <img src="./images/lumieres.png"/>
            	</div>
-            <div id="container-cle-usb">
-                <img src="./images/cle-usb.png"/>
-            </div>
             <div id="container-pot-ps">
                 <img src="./images/Sprite-pot-photoshop.png" id="sprite-pot-ps"/>
             </div>
@@ -72,15 +83,23 @@
                 <img src="./images/Sprite-explosion-angular.png" id="sprite-explosion-angular"/>
             </div>
             
-    		<div id="points">
-    			<p></p>
+    		<div id="icones">
+            	<div id="icone-photoshop">
+    				<img src="images/icone-photoshop.png"/>
+                </div>
+                <img src="images/icone-html-css.png" id="icone-html-css"/>
+                <img src="images/icone-js.png" id="icone-js"/>
+                <img src="images/icone-jquery.png" id="icone-jquery"/>
+                <img src="images/icone-angular.png" id="icone-angular"/>
+                <img src="images/icone-mongo.png" id="icone-mongo"/>
+                <img src="images/icone-node.png" id="icone-node"/>
+                <img src="images/icone-ajax.png" id="icone-ajax"/>
     		</div>
     </div>
     
+    <div id="barre-objectifs">
+    	<img src="./images/Sprite-barre-objectifs.png" id="sprite-barre-objectifs"/>
+    </div>
     
-    <footer>
-
-
-    </footer>
 </body>
 </html>
