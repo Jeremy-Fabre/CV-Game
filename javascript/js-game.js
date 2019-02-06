@@ -2,6 +2,8 @@
 
 
 window.addEventListener("load", function(){
+
+	$('body').css('visibility', 'visible');
 		
 	// CONTENEUR DU PERSONNAGE
 	
@@ -13,7 +15,11 @@ window.addEventListener("load", function(){
 
     $('#button-play').click(function(){
 		
+		// DISPARITION DU BOUTON ET DES INSTRUCTIONS
+		
 		$('#button-play').css('display', 'none');
+		$('#instructions').css('display', 'none');
+		$('#rejouer').css('display', 'none');
 		
 		// COMPTEUR DE POINTS À ZERO
 		
@@ -140,16 +146,71 @@ window.addEventListener("load", function(){
 			}
 		}, 60);
 		
-		// FONCTION D'APPARITION DE CLE USB
+		// FONCTION D'APPARITION DES ICONES DE COMPETENCES
 		
-		
-		var intervalCleUsb = setInterval(function () {
+		var timeOutIconePs = setTimeout(function () {
 			if(!collisionEnnemi){
-				var positionCleUsbX = Math.random() * (827 - 34) + 34;
-				$('#container-cle-usb').css('display', 'block');
-				$('#container-cle-usb').css('left', positionCleUsbX);
+				var positionIconePsX = Math.random() * (827 - 34) + 34;
+				$('#icone-photoshop').css('display', 'block');
+				$('#icone-photoshop').css('left', positionIconePsX);
 			}
-		}, 3000);
+		}, 4000);
+		
+		var timeOutIconeHtml = setTimeout(function () {
+			if(!collisionEnnemi){
+				var positionIconeHtmlX = Math.random() * (827 - 34) + 34;
+				$('#icone-html-css').css('display', 'block');
+				$('#icone-html-css').css('left', positionIconeHtmlX);
+			}
+		}, 7500);
+		
+		var timeOutIconeJs = setTimeout(function () {
+			if(!collisionEnnemi){
+				var positionIconeJsX = Math.random() * (827 - 34) + 34;
+				$('#icone-js').css('display', 'block');
+				$('#icone-js').css('left', positionIconeJsX);
+			}
+		}, 14000);
+		
+		var timeOutIconeJQuery = setTimeout(function () {
+			if(!collisionEnnemi){
+				var positionIconeJQueryX = Math.random() * (827 - 34) + 34;
+				$('#icone-jquery').css('display', 'block');
+				$('#icone-jquery').css('left', positionIconeJQueryX);
+			}
+		}, 20000);
+		
+		var timeOutIconeAngular = setTimeout(function () {
+			if(!collisionEnnemi){
+				var positionIconeAngularX = Math.random() * (827 - 34) + 34;
+				$('#icone-angular').css('display', 'block');
+				$('#icone-angular').css('left', positionIconeAngularX);
+			}
+		}, 23000);
+		
+		var timeOutIconeMongo = setTimeout(function () {
+			if(!collisionEnnemi){
+				var positionIconeMongoX = Math.random() * (827 - 34) + 34;
+				$('#icone-mongo').css('display', 'block');
+				$('#icone-mongo').css('left', positionIconeMongoX);
+			}
+		}, 26000);
+		
+		var timeOutIconeNode = setTimeout(function () {
+			if(!collisionEnnemi){
+				var positionIconeNodeX = Math.random() * (827 - 34) + 34;
+				$('#icone-node').css('display', 'block');
+				$('#icone-node').css('left', positionIconeNodeX);
+			}
+		}, 29000);
+		
+		var timeOutIconeAjax = setTimeout(function () {
+			if(!collisionEnnemi){
+				var positionIconeAjaxX = Math.random() * (827 - 34) + 34;
+				$('#icone-ajax').css('display', 'block');
+				$('#icone-ajax').css('left', positionIconeAjaxX);
+			}
+		}, 32000);
 		
 
 		// POT DE PEINTURE PHOTOSHOP
@@ -719,36 +780,138 @@ window.addEventListener("load", function(){
 				checkCollisionDroite = true;
 			}
 			
-			// COLLISION AVEC LES CLES USB
+			// COLLISION AVEC LES ICONES DE COMPETENCES
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-cle-usb').css('left')) + parseFloat($('#container-cle-usb').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-cle-usb').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-cle-usb').css('top')) + parseFloat($('#container-cle-usb').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-cle-usb').css('top')) && $('#container-cle-usb').css('display') === 'block')) {
+				// ICONE PHOTOSHOP
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-photoshop').css('left')) + parseFloat($('#icone-photoshop').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-photoshop').css('left')) && $('#icone-photoshop').css('display') === 'block')) {
 				
-				// DISPARITION CLE USB
+				// DISPARITION ICONE ET CLEARTIMEOUT
 
-				$('#container-cle-usb').css('display', 'none');
+				$('#icone-photoshop').css('display', 'none');
+				window.clearTimeout(timeOutIconePs);
 				
-				// COMPTEUR DE POINTS
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
 				
-				compteur++;
-				
-				$('#points').html("<p>" + compteur + "</p>");
+				$('#sprite-barre-objectifs').css('margin-top', -100);
 				
 			}
 			
-			// COLLISION AVEC LES ELEMENTS ENNEMIS
+				// ICONE HTML / CSS
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-html-css').css('left')) + parseFloat($('#icone-html-css').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-html-css').css('left')) && $('#icone-html-css').css('display') === 'block')) {
+				
+				// DISPARITION ICONE ET CLEARTIMEOUT
 
-			if(!collisionEnnemi){
+				$('#icone-html-css').css('display', 'none');
+				window.clearTimeout(timeOutIconeHtml);
+				
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
+				
+				$('#sprite-barre-objectifs').css('margin-top', -200);
+				
+			}
+			
+				// ICONE JS
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-js').css('left')) + parseFloat($('#icone-js').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-js').css('left')) && $('#icone-js').css('display') === 'block')) {
+				
+				// DISPARITION ICONE ET CLEARTIMEOUT
 
-				if (/* COLLISION AVEC LA PEINTURE */(parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-peinture-ps').css('left')) + parseFloat($('#container-peinture-ps').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-peinture-ps').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-peinture-ps').css('top')) + parseFloat($('#container-peinture-ps').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-peinture-ps').css('top'))) || /* COLLISION AVEC LE TIR DU PREMIER CANON A BALISES HTML / CSS */(parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-htmlcss').css('left')) + parseFloat($('#container-tir-htmlcss').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-htmlcss').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-htmlcss').css('top')) + parseFloat($('#container-tir-htmlcss').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-htmlcss').css('top'))) || /* COLLISION AVEC LE TIR DU SECOND CANON A BALISES HTML / CSS */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir2-htmlcss').css('left')) + parseFloat($('#container-tir2-htmlcss').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir2-htmlcss').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir2-htmlcss').css('top')) + parseFloat($('#container-tir2-htmlcss').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir2-htmlcss').css('top'))) || /* COLLISION AVEC LE TIR DU CANON A VARIABLE JS */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-js').css('left')) + parseFloat($('#container-tir-js').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-js').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-js').css('top')) + parseFloat($('#container-tir-js').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-js').css('top'))) || /* COLLISION AVEC LE TIR DU CANON A $ JQUERY */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-jQuery').css('left')) + parseFloat($('#container-tir-jQuery').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-jQuery').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-jQuery').css('top')) + parseFloat($('#container-tir-jQuery').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-jQuery').css('top'))) || /* COLLISION AVEC LES EXPLOSIONS ANGULAR */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-explosion-angular').css('left')) + parseFloat($('#container-explosion-angular').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-explosion-angular').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-explosion-angular').css('top')) + parseFloat($('#container-explosion-angular').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-explosion-angular').css('top')) && $('#container-explosion-angular').css('display') === 'block')) {
+				$('#icone-js').css('display', 'none');
+				window.clearTimeout(timeOutIconeJs);
+				
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
+				
+				$('#sprite-barre-objectifs').css('margin-top', -300);
+				
+			}
+			
+				// ICONE JQUERY
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-jquery').css('left')) + parseFloat($('#icone-jquery').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-jquery').css('left')) && $('#icone-jquery').css('display') === 'block')) {
+				
+				// DISPARITION ICONE ET CLEARTIMEOUT
 
+				$('#icone-jquery').css('display', 'none');
+				window.clearTimeout(timeOutIconeJQuery);
+				
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
+				
+				$('#sprite-barre-objectifs').css('margin-top', -400);
+				
+			}
+			
+				// ICONE ANGULAR
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-angular').css('left')) + parseFloat($('#icone-angular').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-angular').css('left')) && $('#icone-angular').css('display') === 'block')) {
+				
+				// DISPARITION ICONE ET CLEARTIMEOUT
 
-					collisionEnnemi = 'true';
+				$('#icone-angular').css('display', 'none');
+				window.clearTimeout(timeOutIconeAngular);
+				
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
+				
+				$('#sprite-barre-objectifs').css('margin-top', -500);
+				
+			}
+			
+				// ICONE MONGO
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-mongo').css('left')) + parseFloat($('#icone-mongo').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-mongo').css('left')) && $('#icone-mongo').css('display') === 'block')) {
+				
+				// DISPARITION ICONE ET CLEARTIMEOUT
 
-					// DISPARITION DU PERSONNAGE, DE LA CLE USB ET REAPPARITION DU BOUTON
+				$('#icone-mongo').css('display', 'none');
+				window.clearTimeout(timeOutIconeMongo);
+				
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
+				
+				$('#sprite-barre-objectifs').css('margin-top', -600);
+				
+			}
+			
+				// ICONE NODE
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-node').css('left')) + parseFloat($('#icone-node').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-node').css('left')) && $('#icone-node').css('display') === 'block')) {
+				
+				// DISPARITION ICONE ET CLEARTIMEOUT
+
+				$('#icone-node').css('display', 'none');
+				window.clearTimeout(timeOutIconeNode);
+				
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
+				
+				$('#sprite-barre-objectifs').css('margin-top', -700);
+				
+			}
+			
+				// ICONE AJAX
+			
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-ajax').css('left')) + parseFloat($('#icone-ajax').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-ajax').css('left')) && $('#icone-ajax').css('display') === 'block')) {
+				
+				collisionEnnemi = true;
+				
+				// DISPARITION ICONE ET CLEARTIMEOUT
+
+				$('#icone-ajax').css('display', 'none');
+				window.clearTimeout(timeOutIconeAjax);
+				
+				// CHANGEMENT DE LA BARRE DES OBJECTIFS
+				
+				$('#sprite-barre-objectifs').css('margin-top', -800);
+				
+				// CHANGEMENT DU BACKGROUND
+			
+				$('html').css('background-image', 'url(./images/background-win.jpg)');
+				
+				
+				// DISPARITION DU PERSONNAGE ET APPARITION DE LA WIN
 
 					conteneurPerso.style.display = 'none';
-					$('#button-play').css('display', 'block');
-					$('#container-cle-usb').css('display', 'none');
+					$('#cv').css('display', 'block');
+					$('#win').css('display', 'block');
 
 					// DISPARITION DU BACKGROUND
 
@@ -761,7 +924,17 @@ window.addEventListener("load", function(){
 							clearInterval(disparitionBackground);
 						}
 					}, 60);
-
+					
+					// DISPARITION DES ICONES DE COMPETENCES
+						
+					$('#icone-photoshop').css('display', 'none');
+					$('#icone-html-css').css('display', 'none');
+					$('#icone-js').css('display', 'none');
+					$('#icone-jquery').css('display', 'none');
+					$('#icone-angular').css('display', 'none');
+					$('#icone-mongo').css('display', 'none');
+					$('#icone-node').css('display', 'none');
+					$('#icone-ajax').css('display', 'none');
 
 					// DISPARITION DES ELEMENTS ENNEMIS
 
@@ -795,7 +968,105 @@ window.addEventListener("load", function(){
 					
 					// ANNULATION DE L'APPARITION ET DES MOUVEMENTS DES ELEMENTS
 					
-					window.clearInterval(intervalCleUsb);
+					window.clearTimeout(timeOutIconePs);
+					window.clearTimeout(timeOutIconeHtml);
+					window.clearTimeout(timeOutIconeJs);
+					window.clearTimeout(timeOutIconeJQuery);
+					window.clearTimeout(timeOutIconeAngular);
+					window.clearTimeout(timeOutIconeMongo);
+					window.clearTimeout(timeOutIconeNode);
+					window.clearTimeout(timeOutIconeAjax);
+					
+					window.clearTimeout(timeOutApparitionHtml);
+					window.clearInterval(intervalMouvementCanonHtml);
+					window.clearTimeout(timeOutApparitionJs);
+					window.clearInterval(intervalMouvementCanonJs);
+					window.clearTimeout(timeOutApparitionJQuery);
+					window.clearInterval(intervalMouvementCanonJQuery);
+					window.clearTimeout(timeOutApparitionAngular);
+					
+				
+			}
+			
+			// COLLISION AVEC LES ELEMENTS ENNEMIS
+
+			if(!collisionEnnemi){
+
+				if (/* COLLISION AVEC LA PEINTURE */(parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-peinture-ps').css('left')) + parseFloat($('#container-peinture-ps').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-peinture-ps').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-peinture-ps').css('top')) + parseFloat($('#container-peinture-ps').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-peinture-ps').css('top'))) || /* COLLISION AVEC LE TIR DU PREMIER CANON A BALISES HTML / CSS */(parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-htmlcss').css('left')) + parseFloat($('#container-tir-htmlcss').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-htmlcss').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-htmlcss').css('top')) + parseFloat($('#container-tir-htmlcss').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-htmlcss').css('top'))) || /* COLLISION AVEC LE TIR DU SECOND CANON A BALISES HTML / CSS */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir2-htmlcss').css('left')) + parseFloat($('#container-tir2-htmlcss').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir2-htmlcss').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir2-htmlcss').css('top')) + parseFloat($('#container-tir2-htmlcss').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir2-htmlcss').css('top'))) || /* COLLISION AVEC LE TIR DU CANON A VARIABLE JS */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-js').css('left')) + parseFloat($('#container-tir-js').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-js').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-js').css('top')) + parseFloat($('#container-tir-js').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-js').css('top'))) || /* COLLISION AVEC LE TIR DU CANON A $ JQUERY */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-jQuery').css('left')) + parseFloat($('#container-tir-jQuery').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-jQuery').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-jQuery').css('top')) + parseFloat($('#container-tir-jQuery').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-jQuery').css('top'))) || /* COLLISION AVEC LES EXPLOSIONS ANGULAR */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-explosion-angular').css('left')) + parseFloat($('#container-explosion-angular').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-explosion-angular').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-explosion-angular').css('top')) + parseFloat($('#container-explosion-angular').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-explosion-angular').css('top')) && $('#container-explosion-angular').css('display') === 'block')) {
+
+
+					collisionEnnemi = true;
+
+					// DISPARITION DU PERSONNAGE ET REAPPARITION DU BOUTON
+
+					conteneurPerso.style.display = 'none';
+					$('#button-play').css('display', 'block');
+					$('#rejouer').css('display', 'block');
+
+					// DISPARITION DU BACKGROUND
+
+					var disparitionBackground = setInterval(function () {
+						if (o >= 0) {
+							$('#backgrounds').css('opacity', o = o - 0.1);
+						}
+						if (o <= 0) {
+							$('#backgrounds').css('background-image', 'url(./images/background-photoshop.png)');
+							clearInterval(disparitionBackground);
+						}
+					}, 60);
+					
+					// DISPARITION DES ICONES DE COMPETENCES
+						
+					$('#icone-photoshop').css('display', 'none');
+					$('#icone-html-css').css('display', 'none');
+					$('#icone-js').css('display', 'none');
+					$('#icone-jquery').css('display', 'none');
+					$('#icone-angular').css('display', 'none');
+					$('#icone-mongo').css('display', 'none');
+					$('#icone-node').css('display', 'none');
+					$('#icone-ajax').css('display', 'none');
+
+					// DISPARITION DES ELEMENTS ENNEMIS
+
+						// DISPARITION POT DE PEINTURE PHOTOSHOP
+
+					$('#container-pot-ps').css('display', 'none');
+					$('#container-peinture-ps').css('display', 'none');
+
+						// DISPARITION CANONS A BALISE HTML / CSS
+
+					$('#container-canon-htmlcss').css('display', 'none');
+					$('#container-tir-htmlcss').css('display', 'none');
+					$('#container-canon2-htmlcss').css('display', 'none');
+					$('#container-tir2-htmlcss').css('display', 'none');
+
+						// DISPARITION CANON A VARIABLES JS
+
+					$('#container-canon-js').css('display', 'none');
+					$('#container-tir-js').css('display', 'none');
+					
+						// DISPARITION CANON A $ JQUERY
+
+					$('#container-canon-jQuery').css('display', 'none');
+					$('#container-tir-jQuery').css('display', 'none');
+					
+						// DISPARITION BALISES EXPLOSIVES ANGULAR
+
+					$('#container-balises-angular').css('display', 'none');
+					$('#container-explosion-angular').css('display', 'none');
+
+					
+					// ANNULATION DE L'APPARITION ET DES MOUVEMENTS DES ELEMENTS
+					
+					window.clearTimeout(timeOutIconePs);
+					window.clearTimeout(timeOutIconeHtml);
+					window.clearTimeout(timeOutIconeJs);
+					window.clearTimeout(timeOutIconeJQuery);
+					window.clearTimeout(timeOutIconeAngular);
+					window.clearTimeout(timeOutIconeMongo);
+					window.clearTimeout(timeOutIconeNode);
+					window.clearTimeout(timeOutIconeAjax);
+					
 					window.clearTimeout(timeOutApparitionHtml);
 					window.clearInterval(intervalMouvementCanonHtml);
 					window.clearTimeout(timeOutApparitionJs);
