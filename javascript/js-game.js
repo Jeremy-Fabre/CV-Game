@@ -15,20 +15,19 @@ window.addEventListener("load", function(){
 
     $('#button-play').click(function(){
 		
-		// DISPARITION DU BOUTON ET DES INSTRUCTIONS
+		// DISPARITION DU BOUTON, DES INSTRUCTIONS ET RÉINITIALISATION DE LA BARRE D'OBJECTIFS
 		
 		$('#button-play').css('display', 'none');
 		$('#instructions').css('display', 'none');
 		$('#rejouer').css('display', 'none');
+		$('#sprite-barre-objectifs').css('margin-top', '0');
 		
-		// COMPTEUR DE POINTS À ZERO
 		
-		var compteur = 0;
-		$('#points').html("<p>" + compteur + "</p>");
 		
-		// VARIABLE DE COLLISION AVEC LES OBJETS ENNEMIS
+		// VARIABLE DE COLLISION AVEC LES OBJETS ENNEMIS ET DE WIN CONDITION
 		
 		var collisionEnnemi = false;
+		var win = false;
 		
     	// COORDONNÉES DE BASE DU PERSONNAGE
 
@@ -37,7 +36,7 @@ window.addEventListener("load", function(){
 		conteneurPerso.style.width = '38px';
 		conteneurPerso.style.height = '84px';
         conteneurPerso.style.top = '482px';
-        conteneurPerso.style.left = '481px';
+        conteneurPerso.style.left = '463px';
 		conteneurPerso.style.display = 'block';
 
 
@@ -376,15 +375,20 @@ window.addEventListener("load", function(){
 				if (!collisionEnnemi) {
 					var intervalTirHtml = setInterval(function () {
 						if (frameTirHtml >= mesFrames.spriteTirHtml.length) {
+							frameTirHtml = 4;
+						}
+						if (tirHtmlY >= 519){
+							tirHtmlY = 70;
 							frameTirHtml = 0;
 							clearInterval(intervalTirHtml);
 							animCanonHtmlCss();
 						}
+						
 						$('#sprite-tir-htmlcss').css('margin-top', mesFrames.spriteTirHtml[frameTirHtml].marginTop);
 						$('#sprite-tir2-htmlcss').css('margin-top', mesFrames.spriteTirHtml[frameTirHtml].marginTop);
 						$('#container-tir-htmlcss').css('top', tirHtmlY);
 						$('#container-tir2-htmlcss').css('top', tirHtmlY);
-						tirHtmlY = tirHtmlY + 110;
+						tirHtmlY = tirHtmlY + 40;
 						frameTirHtml++;
 					}, 100);
 				}
@@ -485,6 +489,7 @@ window.addEventListener("load", function(){
 					var intervalTirJs = setInterval(function () {
 						if (frameTirJs >= mesFrames.spriteTirJs.length) {
 							frameTirJs = 0;
+							tirJsY = 70;
 							clearInterval(intervalTirJs);
 							animCanonJs();
 						}
@@ -799,7 +804,7 @@ window.addEventListener("load", function(){
 			
 				// ICONE HTML / CSS
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-html-css').css('left')) + parseFloat($('#icone-html-css').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-html-css').css('left')) && $('#icone-html-css').css('display') === 'block')) {
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-html-css').css('left')) + parseFloat($('#icone-html-css').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-html-css').css('left')) && $('#icone-html-css').css('display') === 'block') && parseFloat($('#sprite-barre-objectifs').css('margin-top')) === -100) {
 				
 				// DISPARITION ICONE ET CLEARTIMEOUT
 
@@ -814,7 +819,7 @@ window.addEventListener("load", function(){
 			
 				// ICONE JS
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-js').css('left')) + parseFloat($('#icone-js').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-js').css('left')) && $('#icone-js').css('display') === 'block')) {
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-js').css('left')) + parseFloat($('#icone-js').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-js').css('left')) && $('#icone-js').css('display') === 'block') && parseFloat($('#sprite-barre-objectifs').css('margin-top')) === -200) {
 				
 				// DISPARITION ICONE ET CLEARTIMEOUT
 
@@ -829,7 +834,7 @@ window.addEventListener("load", function(){
 			
 				// ICONE JQUERY
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-jquery').css('left')) + parseFloat($('#icone-jquery').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-jquery').css('left')) && $('#icone-jquery').css('display') === 'block')) {
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-jquery').css('left')) + parseFloat($('#icone-jquery').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-jquery').css('left')) && $('#icone-jquery').css('display') === 'block') && parseFloat($('#sprite-barre-objectifs').css('margin-top')) === -300) {
 				
 				// DISPARITION ICONE ET CLEARTIMEOUT
 
@@ -844,7 +849,7 @@ window.addEventListener("load", function(){
 			
 				// ICONE ANGULAR
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-angular').css('left')) + parseFloat($('#icone-angular').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-angular').css('left')) && $('#icone-angular').css('display') === 'block')) {
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-angular').css('left')) + parseFloat($('#icone-angular').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-angular').css('left')) && $('#icone-angular').css('display') === 'block') && parseFloat($('#sprite-barre-objectifs').css('margin-top')) === -400) {
 				
 				// DISPARITION ICONE ET CLEARTIMEOUT
 
@@ -859,7 +864,7 @@ window.addEventListener("load", function(){
 			
 				// ICONE MONGO
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-mongo').css('left')) + parseFloat($('#icone-mongo').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-mongo').css('left')) && $('#icone-mongo').css('display') === 'block')) {
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-mongo').css('left')) + parseFloat($('#icone-mongo').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-mongo').css('left')) && $('#icone-mongo').css('display') === 'block') && parseFloat($('#sprite-barre-objectifs').css('margin-top')) === -500) {
 				
 				// DISPARITION ICONE ET CLEARTIMEOUT
 
@@ -874,7 +879,7 @@ window.addEventListener("load", function(){
 			
 				// ICONE NODE
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-node').css('left')) + parseFloat($('#icone-node').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-node').css('left')) && $('#icone-node').css('display') === 'block')) {
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-node').css('left')) + parseFloat($('#icone-node').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-node').css('left')) && $('#icone-node').css('display') === 'block') && parseFloat($('#sprite-barre-objectifs').css('margin-top')) === -600) {
 				
 				// DISPARITION ICONE ET CLEARTIMEOUT
 
@@ -889,9 +894,10 @@ window.addEventListener("load", function(){
 			
 				// ICONE AJAX
 			
-			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-ajax').css('left')) + parseFloat($('#icone-ajax').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-ajax').css('left')) && $('#icone-ajax').css('display') === 'block')) {
+			if ((parseFloat(conteneurPerso.style.left) <= (parseFloat($('#icone-ajax').css('left')) + parseFloat($('#icone-ajax').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#icone-ajax').css('left')) && $('#icone-ajax').css('display') === 'block') && parseFloat($('#sprite-barre-objectifs').css('margin-top')) === -700) {
 				
 				collisionEnnemi = true;
+				win = true;
 				
 				// DISPARITION ICONE ET CLEARTIMEOUT
 
@@ -904,7 +910,7 @@ window.addEventListener("load", function(){
 				
 				// CHANGEMENT DU BACKGROUND
 			
-				$('html').css('background-image', 'url(./images/background-win.jpg)');
+				$('body').css('background-image', 'url(./images/background-win.jpg)');
 				
 				
 				// DISPARITION DU PERSONNAGE ET APPARITION DE LA WIN
@@ -990,7 +996,7 @@ window.addEventListener("load", function(){
 			
 			// COLLISION AVEC LES ELEMENTS ENNEMIS
 
-			if(!collisionEnnemi){
+			if(!collisionEnnemi && !win){
 
 				if (/* COLLISION AVEC LA PEINTURE */(parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-peinture-ps').css('left')) + parseFloat($('#container-peinture-ps').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-peinture-ps').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-peinture-ps').css('top')) + parseFloat($('#container-peinture-ps').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-peinture-ps').css('top'))) || /* COLLISION AVEC LE TIR DU PREMIER CANON A BALISES HTML / CSS */(parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-htmlcss').css('left')) + parseFloat($('#container-tir-htmlcss').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-htmlcss').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-htmlcss').css('top')) + parseFloat($('#container-tir-htmlcss').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-htmlcss').css('top'))) || /* COLLISION AVEC LE TIR DU SECOND CANON A BALISES HTML / CSS */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir2-htmlcss').css('left')) + parseFloat($('#container-tir2-htmlcss').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir2-htmlcss').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir2-htmlcss').css('top')) + parseFloat($('#container-tir2-htmlcss').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir2-htmlcss').css('top'))) || /* COLLISION AVEC LE TIR DU CANON A VARIABLE JS */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-js').css('left')) + parseFloat($('#container-tir-js').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-js').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-js').css('top')) + parseFloat($('#container-tir-js').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-js').css('top'))) || /* COLLISION AVEC LE TIR DU CANON A $ JQUERY */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-tir-jQuery').css('left')) + parseFloat($('#container-tir-jQuery').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-tir-jQuery').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-tir-jQuery').css('top')) + parseFloat($('#container-tir-jQuery').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-tir-jQuery').css('top'))) || /* COLLISION AVEC LES EXPLOSIONS ANGULAR */ (parseFloat(conteneurPerso.style.left) <= (parseFloat($('#container-explosion-angular').css('left')) + parseFloat($('#container-explosion-angular').css('width'))) && (parseFloat(conteneurPerso.style.left) + parseFloat(conteneurPerso.style.width)) >= parseFloat($('#container-explosion-angular').css('left')) && parseFloat(conteneurPerso.style.top) <= (parseFloat($('#container-explosion-angular').css('top')) + parseFloat($('#container-explosion-angular').css('height'))) && (parseFloat(conteneurPerso.style.top) + parseFloat(conteneurPerso.style.height)) >= parseFloat($('#container-explosion-angular').css('top')) && $('#container-explosion-angular').css('display') === 'block')) {
 
