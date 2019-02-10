@@ -3,7 +3,7 @@
 
 window.addEventListener("load", function(){
 
-	$('body').css('visibility', 'visible');
+	$('#container-game').css('visibility', 'visible');
 		
 	// CONTENEUR DU PERSONNAGE
 	
