@@ -10,7 +10,6 @@ body {
     margin: 0 auto;
     color: white;
     font-family: Caviar, Arial, sans-serif;
-	visibility::hidden;
 }
 
 a{
@@ -18,7 +17,7 @@ a{
 	text-decoration:none;
 }
 
-.logo-JeF{
+#logo-JeF{
     width: 10%;
     position: relative;
 	filter: drop-shadow(8px 8px 20px black);
@@ -43,7 +42,7 @@ nav ul{
 	padding:0;
 }
 
-nav a{
+li{
 	width: 200px;
     height: 50px;
 	background-image: url(../images/background-bouton-nav.png);
@@ -53,7 +52,6 @@ nav a{
 	line-height:50px;
 	list-style:none;
 	flex:auto;
-	cursor:pointer;
 }
 
 /* Page cv */
@@ -101,6 +99,7 @@ iframe{
     border: 2px solid #4a4a4a;
 	background-image: url(../images/background-game.jpg);
 	filter: drop-shadow(8px 8px 20px black);
+	visibility:hidden;
 }
 
 #instructions{
