@@ -526,7 +526,7 @@ window.addEventListener("load", function(){
 
 				var apparitionBgJQuery = setInterval(function () {
 					if (o <= 1 && !bgJs) {
-						$('#backgrounds').css('background-image', 'url(./images/background-jquery.png)');
+						$('#backgrounds').css('background-image', 'url(./images/background-jQuery.png)');
 						$('#backgrounds').css('opacity', o = o + 0.1);
 					}
 					if (o >= 1) {
